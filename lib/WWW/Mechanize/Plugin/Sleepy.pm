@@ -18,8 +18,26 @@ or, set single Mechanize instance to sleep for 5 seconds between requests:
     
     my $mech = WWW::Mechanize::Pluggable->new( sleep => 5 );
 
-# TODO also can use range (1..10) for random sleep length
+To change sleep time:
 
+    $mech->sleep(2);    # now sleep for 2 seconds per request
+
+To sleep for a random number of seconds, specify the range as a string in the
+following format:
+
+    'i1..i2'
+    
+    # e.g.
+    $mech->sleep('5..10');
+
+=head1 DESCRIPTION
+
+This module makes it easy to slow down L<WWW::Mechanize> when using
+L<WWW::Mechanize::Pluggable>, in the manner of L<WWW::Mechanize::Sleepy>
+
+=head1 ACKNOWLEDGEMENTS
+
+Code and tests based on L<WWW::Mechanize::Sleepy>
 
 =cut
 
@@ -40,7 +58,7 @@ sub init {
         qw/ get put reload back request follow_link submit submit_form/)
     {
 
-        # 0; - carries on to rest of parent method
+        # return 0; - ensures carries on to rest of parent method
         $pluggable->pre_hook( $method, sub { $_[0]->_sleep(); 0; } );
     }
 
@@ -69,6 +87,7 @@ sub sleep {
     return $self->{Sleepy_Time};
 }
 
+# sets sleep time and method
 sub _set_sleep {
     my ( $self, $arg ) = @_;
 
@@ -89,6 +108,7 @@ sub _set_sleep {
     $self->{Sleepy_Method} = $method;
 }
 
+# performs sleep
 sub _sleep {
     my ($self) = @_;
     $self->{Sleepy_Method}->();
