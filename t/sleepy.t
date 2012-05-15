@@ -43,12 +43,12 @@ my @tests = (
     },
 );
 
-ok $mech->sleep(3), "setting sleep";
-is $mech->sleep, 3, "now set to 3 seconds";
+ok $mech->sleep(2), "setting sleep";
+is $mech->sleep, 2, "now set to 2 second";
 
 foreach my $test (@tests) {
     note $test->{name};
-    time_atleast( $test->{code}, 2, "get took over 2 seconds" );
+    time_atleast( $test->{code}, 1, "get took over 1 second" );
 }
 
 ok $mech->sleep('2..4'), "setting sleep to range";

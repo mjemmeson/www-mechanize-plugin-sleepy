@@ -27,13 +27,17 @@ following format:
 
     'i1..i2'
     
-    # e.g.
+    # e.g. will sleep between 5 and 10 seconds, inclusive
     $mech->sleep('5..10');
 
 =head1 DESCRIPTION
 
 This module makes it easy to slow down L<WWW::Mechanize> when using
-L<WWW::Mechanize::Pluggable>, in the manner of L<WWW::Mechanize::Sleepy>
+L<WWW::Mechanize::Pluggable>, in the manner of L<WWW::Mechanize::Sleepy>.
+
+The code merely adds hooks containing a C<sleep()> before several
+WWW::Mechanize methods, but is possibly preferable to scattering C<sleep()>s
+throughout code in order to slow down tests, for example.
 
 =head1 ACKNOWLEDGEMENTS
 
@@ -97,7 +101,8 @@ sub _set_sleep {
     } elsif ( my ( $from, $to ) = $arg =~ m/^(\d+)\.\.(\d+)$/ ) {
         croak "sleep range (i1..i2) must have i1 < i2"
             if $1 >= $2;
-        $method = sub { CORE::sleep( int( rand( $to - $from ) ) + $from ); };
+        $method
+            = sub { CORE::sleep( int( rand( ( $to + 1 ) - $from ) ) + $from ) };
     } elsif ( $arg !~ m/\D/ ) {
         $method = sub { CORE::sleep($arg); };
     } else {
