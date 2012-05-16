@@ -98,13 +98,16 @@ sub _set_sleep {
     my $method;
     if ( !defined $arg ) {
         $method = sub { };
+        
     } elsif ( my ( $from, $to ) = $arg =~ m/^(\d+)\.\.(\d+)$/ ) {
         croak "sleep range (i1..i2) must have i1 < i2"
             if $1 >= $2;
         $method
             = sub { CORE::sleep( int( rand( ( $to + 1 ) - $from ) ) + $from ) };
+            
     } elsif ( $arg !~ m/\D/ ) {
         $method = sub { CORE::sleep($arg); };
+        
     } else {
         croak "sleep parameter must be an integer or a range i1..i2";
     }
