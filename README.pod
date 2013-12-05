@@ -6,7 +6,7 @@ WWW::Mechanize::Plugin::Sleepy - A WWW::Mechanize plugin to provide the behaviou
 
 =head1 VERSION
 
-version 0.001
+version 0.003
 
 =head1 SYNOPSIS
 

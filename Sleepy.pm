@@ -1,5 +1,7 @@
 package WWW::Mechanize::Plugin::Sleepy;
 
+# VERSION
+
 # ABSTRACT: A WWW::Mechanize plugin to provide the behaviour of WWW::Mechanize::Sleepy while using WWW::Mechanize::Pluggable
 
 use strict;
