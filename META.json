@@ -40,7 +40,10 @@
       },
       "runtime" : {
          "requires" : {
-            "perl" : "5.006"
+            "Carp" : "0",
+            "perl" : "5.006",
+            "strict" : "0",
+            "warnings" : "0"
          }
       },
       "test" : {
@@ -53,13 +56,16 @@
             "Test::Exception" : "0",
             "Test::More" : "0",
             "Test::Timer" : "0",
-            "WWW::Mechanize::Pluggable" : "0",
-            "strict" : "0",
-            "warnings" : "0"
+            "WWW::Mechanize::Pluggable" : "0"
          }
       }
    },
-   "provides" : {},
+   "provides" : {
+      "WWW::Mechanize::Plugin::Sleepy" : {
+         "file" : "lib/WWW/Mechanize/Plugin/Sleepy.pm",
+         "version" : "0.003"
+      }
+   },
    "release_status" : "stable",
    "resources" : {
       "bugtracker" : {

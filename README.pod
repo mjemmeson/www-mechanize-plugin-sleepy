@@ -1,5 +1,7 @@
 =pod
 
+=encoding utf-8
+
 =head1 NAME
 
 WWW::Mechanize::Plugin::Sleepy - A WWW::Mechanize plugin to provide the behaviour of WWW::Mechanize::Sleepy while using WWW::Mechanize::Pluggable
@@ -69,6 +71,25 @@ L<WWW::Mechanize::Sleepy>
 L<WWW::Mechanize::Pluggable>
 
 =back
+
+=for :stopwords cpan testmatrix url annocpan anno bugtracker rt cpants kwalitee diff irc mailto metadata placeholders metacpan
+
+=head1 SUPPORT
+
+=head2 Bugs / Feature Requests
+
+Please report any bugs or feature requests through the issue tracker
+at L<https://github.com/mjemmeson/www-mechanize-plugin-sleepy/issues>.
+You will be notified automatically of any progress on your issue.
+
+=head2 Source Code
+
+This is open source software.  The code repository is available for
+public review and contribution under the terms of the license.
+
+L<https://github.com/mjemmeson/www-mechanize-plugin-sleepy>
+
+  git clone git://github.com/mjemmeson/www-mechanize-plugin-sleepy.git
 
 =head1 AUTHOR
 
