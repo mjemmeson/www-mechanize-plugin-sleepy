@@ -1,8 +1,12 @@
-Revision history for WWW-Mechanize-Plugin-Sleepy
+Revision history for {{$dist->name}}
 
-{{NEXT}}
+{{$NEXT}}
 
   - added repository, updated dist.ini
+
+0.002
+
+  - ?
 
 0.001
 
